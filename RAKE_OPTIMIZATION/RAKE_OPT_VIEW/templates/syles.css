@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('./asserts/train-wagons-carrying-cargo-containers-shipping-companies.jpg') ;
+    background-size: cover; /* Optional: ensures the image covers the entire body */
+     background-position: center;/* Optional: centers the image */
+    background-repeat: no-repeat; 
+    /* background: rgba(255, 255, 255, 0.5); */
+    backdrop-filter: blur(3px);
+ 
+  }
+.outer{
+    /* background: url('./asserts/train-wagons-carrying-cargo-containers-shipping-companies.jpg'); */
+    /* background: #cdcaf3; */
+    top:17%;
+    width:100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+     font-family: Arial, sans-serif;
+}
+.btn{
+    width: fit-content;
+    padding:50px;
+   
+}
+@media(max-width:960px){
+    .card{
+        width: 100vw;
+    }
+}

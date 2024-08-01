@@ -1,0 +1,22 @@
+body{
+    background: #f5f5f5
+}
+.card{
+    margin:0 auto;
+    margin-top:15%;
+}
+#btndiv{
+display: flex;
+gap:200px;
+justify-content: center;
+}
+button{
+    background: #90EE90;
+    border-radius: 20px;
+}
+.btn-primary{
+    background-color:#90EE90;
+}
+.col{
+    width:25%;
+}

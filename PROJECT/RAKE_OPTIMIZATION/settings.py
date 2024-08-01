@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import oracledb
+import os
+
+oracledb.init_oracle_client()
+cp = oracledb.ConnectParams(host="10.30.2.202", port="1521", service_name="FOIS")
+dsn = cp.get_connect_string()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'RAKE_OPT_VIEW'
 ]
 
 MIDDLEWARE = [
@@ -47,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'RAKE_OPT_VIEW.middlewares.AjaxMiddleware'
 ]
 
 ROOT_URLCONF = 'RAKE_OPTIMIZATION.urls'
@@ -75,8 +83,10 @@ WSGI_APPLICATION = 'RAKE_OPTIMIZATION.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': dsn,
+        'USER':'APEKSHAM',
+        'PASSOWRD':'Apek#123'
     }
 }
 
@@ -118,6 +128,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+       os.path.join(BASE_DIR, 'RAKE_OPT_VIEW/static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

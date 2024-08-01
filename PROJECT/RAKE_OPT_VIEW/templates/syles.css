@@ -1,9 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('./asserts/train-wagons-carrying-cargo-containers-shipping-companies.jpg') ;
-    background-size: cover; /* Optional: ensures the image covers the entire body */
-     background-position: center;/* Optional: centers the image */
+    background-image: url('./asserts/box\ train\ dawn.jpg') ;
+    background-size:auto; /* Optional: ensures the image covers the entire body */
+     background-position:left;/* Optional: centers the image */
     background-repeat: no-repeat; 
     /* background: rgba(255, 255, 255, 0.5); */
     backdrop-filter: blur(3px);
@@ -23,9 +23,4 @@ body {
     width: fit-content;
     padding:50px;
    
-}
-@media(max-width:960px){
-    .card{
-        width: 100vw;
-    }
 }

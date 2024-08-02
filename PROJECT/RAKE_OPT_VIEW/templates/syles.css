@@ -1,14 +1,17 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url('./asserts/box\ train\ dawn.jpg') ;
-    background-size:auto; /* Optional: ensures the image covers the entire body */
-     background-position:left;/* Optional: centers the image */
-    background-repeat: no-repeat; 
-    /* background: rgba(255, 255, 255, 0.5); */
-    backdrop-filter: blur(3px);
+  margin: 0;
+  padding: 0;
+  
+  background-image: url('./asserts/box\ train\ side-modified\ \(2\).jpg') ;
+  background-size:cover; /* Optional: ensures the image covers the entire body */
+  background-repeat: no-repeat; 
+  
  
-  }
+  /* background: rgba(255, 255, 255, 0.5); */
+  /* backdrop-filter: blur(3px); */
+  
+
+}
 .outer{
     /* background: url('./asserts/train-wagons-carrying-cargo-containers-shipping-companies.jpg'); */
     /* background: #cdcaf3; */

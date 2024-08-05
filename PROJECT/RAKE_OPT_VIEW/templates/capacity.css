@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    
+    background-image: url('./asserts/box\ train\ side-modified\ \(2\).jpg') ;
+    background-size:cover; /* Optional: ensures the image covers the entire body */
+    background-repeat: no-repeat; 
+    
+   
+    /* background: rgba(255, 255, 255, 0.5); */
+    /* backdrop-filter: blur(3px); */
+    
+ 
+  }
+  .outer{
+    margin: 0 auto;
+    margin-top:15%;
+    overflow: hidden;
+    background: #ffff;
+
+  }
+
+
+  .tabs{
+    /* background:#00C9D4; */
+/* color:#ffff; */
+  }

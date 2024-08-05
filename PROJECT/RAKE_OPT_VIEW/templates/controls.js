@@ -6,8 +6,7 @@ function showCommTable(){
     document.querySelector(".table-div")
 }
 function addRow(){
-   var tableHtml= document;
-    // document.getElementById("tb-body").innerHTML;
+   
    
 var comm = document.getElementById("commodity-select");
 var commValue = comm.options[comm.selectedIndex].value;
@@ -25,7 +24,11 @@ console.log(subCommValue);
 console.log(commDateValue);
 console.log(document.getElementById("tb-body").innerText);
 console.log(tableHtml);
-tableHtml += '<tr> <td>'+ commValue +'</td> <td>' +subCommValue +'</td> <td>'+ commDateValue+ '</td> </tr>' ; 
 
 
+
+}
+function drawCommodityTable(){
+    var tableHtml= document.getElementById("tb-body").innerHTML;
+    tableHtml += '<tr> <td>'+ commValue +'</td> <td>' +subCommValue +'</td> <td>'+ commDateValue+ '</td> </tr>' ;
 }

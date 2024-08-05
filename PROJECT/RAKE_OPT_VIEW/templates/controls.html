@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .row {
-            margin-left: 5%;
+            margin-left: 1%;
         }
         .inp {
             padding-right: 0px;
@@ -24,7 +24,7 @@
     </style>
 </head>  
 <body>
-    <div class="col-md-10 col-lg-6 outer">
+    <div class="col-md-10 col-lg-10 outer">
         <div class="card shadow-lg" style="overflow: hidden; border-radius: 7%;">
             <h1 class="card-header text-center" style="background: #00C9D4; color:#ffff">
                 Control Settings
@@ -33,79 +33,104 @@
                 <form>
                 <div class="form">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-3">
                             <label for="headway" class="form-label">Headway :<br>(Default) </label>
                         </div>
-                        <div class="col-3 inp">
-                            <input type="number" min="0" max="60" name="headway" class="form-control" id="headway">
+                        <div class="col-2 inp">
+                            <input type="number" min="0" max="60" name="headway" value="10" class="form-control" id="headway">
                         </div>
-                        <div class="col unit">minutes</div><br>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
+                        <div class="col-1 unit">min.</div>
+                    
+                        <div class="col-3">
                             <label for="emptyrun" class="form-label">Empty Run :<br> (Threshold) </label>
                         </div>
-                        <div class="col-3 inp">
-                            <input type="number" min="0" max="60" name="emptyrun" class="form-control" id="emptyrun">
+                        <div class="col-2 inp">
+                            <input type="number" min="0" max="60" value="360" name="emptyrun" class="form-control" id="emptyrun">
                         </div>
-                        <div class="col unit">minutes</div><br>
+                       <div class="col-1 unit">min.</div> 
                     </div>
+                    
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-3">
                             <label for="reskilo" class="form-label">Residue Kilometers :<br> (Remaining run after savings)</label>
                         </div>
-                        <div class="col-3 inp">
-                            <input type="number" name="reskilo" class="form-control" id="reskilo">
+                        <div class="col-2 inp">
+                            <input type="number" name="reskilo" value="500" class="form-control" id="reskilo">
                         </div>
-                        <div class="col unit">Kilometers</div><br>
+                        <div class="col-1 unit">Kms.</div>
+                   
+                        <div class="col-3">
+                            <label for="explor" class="form-label">Exploration :<br> (Nearest pilots Nos.)</label>
+                        </div>
+                        <div class="col-2 inp">
+                            <input type="number" value="20" name="explor" class="form-control" id="explor">
+                        </div>
+                        <div class="col-1 unit">pilots</div>
                     </div>
                     <div class="row">
-                        <div class="col-4">
-                            <label for="explor" class="form-label">Exploration :<br> (number of nearest pilots)</label>
-                        </div>
-                        <div class="col-3 inp">
-                            <input type="number" name="explor" class="form-control" id="explor">
-                        </div>
-                        <div class="col unit">pilots</div><br>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
+                        <div class="col-3">
                             <label for="altpaths" class="form-label">Alternate Paths :</label>
                         </div>
-                        <div class="col-3 inp">
-                            <input type="number" name="altpaths" class="form-control" id="altpaths">
+                        <div class="col-2 inp">
+                            <input type="number"value="2" name="altpaths" class="form-control" id="altpaths">
                         </div>
-                        <div class="col unit">nos</div>
-                    </div><br>
+                        <div class="col-1 unit">Nos.</div>
+                    
+                        <div class="col-3">
+                            <label for="bpckm" class="form-label">BPC Added Kilometers :<br> (Kms added after examination)</label>
+                        </div>
+                        <div class="col-2 inp">
+                            <input type="number" value="7500" name="bpckm" class="form-control" id="bpckm">
+                        </div>
+                        <div class="col-1 unit">Kms.</div>
+                    </div>
                     <div class="row">
-                        <div class="col-4">
-                            <label for="bpckm" class="form-label">BPC Added Kilometers :<br> (Kilometers added after examination)</label>
-                        </div>
-                        <div class="col-3 inp">
-                            <input type="number" name="bpckm" class="form-control" id="bpckm">
-                        </div>
-                        <div class="col unit">Kilometers</div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-4">
+
+                            
+                        <div class="col-3">
                             <label for="ldudtime" class="form-label">Loading/ Unloading Time:<br>(Time taken to load/ Unload before movement)</label>
                         </div>
-                        <div class="col-3 inp">
-                            <input type="number"min="0" max="60"  name="ldudtime" class="form-control" id="ldudtime">
+                        <div class="col-2 inp">
+                            <input type="number"min="0" max="60" value="360" name="ldudtime" class="form-control" id="ldudtime">
                         </div>
-                        <div class="col unit">minutes</div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-4">
+                        <div class="col-1 unit">min.</div>
+                    
+                        <div class="col-3">
                             <label for="dmndcutoff" class="form-label" style="padding-top:10px">Demand Cutoff Date :</label>
+                            <br> <br>
+                            <div style="display: flex; gap: 20px;" >
+                            <input type="checkbox" style="width: 20px;" onclick="showCommTable()">
+                            <h6 style="padding-top: 2%;">Cutoff Date (Commodity Wise)</h6>        
+                        
                         </div>
-                        <div class="col-3 inp">
-                            <div class="" id="datepicker">
-                                <input type="date" placeholder="dd/mm/yyyy" class="form-control" id="fecha1" >
+                        </div>
+                        
+                            <div class="col-2 inp" id="datepicker">
+                                <input type="date"  value="01/02/2024"  class="form-control" id="fecha1" >
                             
                             </div>
-                        </div>
+                       
+                        
+
                     </div><br> 
+                    <div class="row table-div table-hide" >
+                        <div class="table-primary">
+                        <thead>
+                            <tr>
+                                <th >Commodiy</th>
+                                <th>Cutoff Date</th>
+                                <th><button type="button" class="btn btn-outline-success">Add</button></th>
+                    
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+
+                        </tbody>
+
+                        </div>
+                    </div>
+
+
                     <div class=" col-12" id="declaration">
                     <input type="checkbox" style="width: 20px;" required>
                     <label for="declare" id="declare">I hereby certify that all the information entered is correct to my best knowledge</label>
@@ -130,6 +155,7 @@
     <!-- Datepicker JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
+    <script src="./controls.js"></script>
     <!-- <script>
         $(function () {
             $('#datepicker').datepicker({

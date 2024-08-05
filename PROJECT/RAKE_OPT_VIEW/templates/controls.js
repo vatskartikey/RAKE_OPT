@@ -1,6 +1,8 @@
-$(function () { 
-    $("#datepicker").datepicker({  
-        autoclose: true,  
-        todayHighlight: true, 
-    }).datepicker('update', new Date()); 
-}); 
+
+
+function showCommTable(){
+    document.querySelector(".table-div").classList.toggle("table-show");
+    document.querySelector(".table-div").classList.toggle("table-hide");
+    document.querySelector(".table-div")
+}
+

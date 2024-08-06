@@ -1,6 +1,8 @@
 
 
 function showCommTable(){
+    
+
     document.querySelector(".table-div").classList.toggle("table-show");
     document.querySelector(".table-div").classList.toggle("table-hide");
     document.querySelector(".table-div")
@@ -24,6 +26,11 @@ console.log(subCommValue);
 console.log(commDateValue);
 console.log(document.getElementById("tb-body").innerText);
 
+if(commValue=="" || subCommValue =="" || commDateValue==""){
+    alert("all inputs required");
+    return;
+}
+showTable();
 //     const tableHtml= document.querySelector("#comm-table tbody");
 //     const newRow = document.createElement('tr');
 //     const commodity= document.createElement('td');
@@ -46,9 +53,24 @@ var comtable= document.querySelector("#table-comm");
 // row_class.value="row";
 // const col_class=document.createAttribute("class");
 // col_class.value="col-2";
+
 const rowdiv=document.createElement("div");
-rowdiv.setAttribute("class","row");
+rowdiv.setAttribute("class","row table-row");
+
+rowdiv.style.paddingTop="1%";
+// serialNo div
+// const serialNoDiv=document.createElement("div");
+// serialNoDiv.setAttribute("class","col-1");
+// const serialDivInput = document.createElement("input");
+// serialDivInput.setAttribute("class","form-control");
+// serialDivInput.setAttribute("id","disabledTextInput");
+// serialDivInput.setAttribute("disabled","disabled");
+// serialDivInput.setAttribute("value",count);
+// count++;
+// serialNoDiv.appendChild(serialDivInput);
+// rowdiv.appendChild(serialNoDiv);
 // commodity div
+
 const commColDiv=document.createElement("div");
 commColDiv.setAttribute("class","col-2");
 
@@ -77,11 +99,12 @@ dateinput.setAttribute("value",commDateValue);
 dateinput.setAttribute("type","date");
 dateinput.setAttribute("class","form-control");
 dateColDiv.setAttribute("class","col-2");
+dateinput.setAttribute("disabled","disabled");
 dateColDiv.appendChild(dateinput);
 rowdiv.appendChild(dateColDiv);
 // button div
 const deleteButtonColDiv=document.createElement("div");
-deleteButtonColDiv.setAttribute("class","col-2");
+deleteButtonColDiv.setAttribute("class","col-1");
 const deleteButton = document.createElement("button");
 deleteButton.setAttribute("type","button");
 deleteButton.setAttribute("class","btn btn-danger");
@@ -91,10 +114,11 @@ deleteButtonColDiv.appendChild(deleteButton);
 const br=document.createElement("br");
 rowdiv.appendChild(deleteButtonColDiv);
 
+
 // appeding row div into table
 comtable.appendChild(rowdiv);
-comtable.appendChild(br);
-
+// comtable.appendChild(br);
+commRowCount();
 // comtable+="<div class='row'> <div class='col-2' >" + "<input type='date' class='form-control' >" +"</div></div>" ;
  });
 
@@ -102,10 +126,21 @@ comtable.appendChild(br);
     var row_Div = button.parentNode.parentNode;
 
     row_Div.parentNode.removeChild(row_Div);
+    commRowCount();
 }
 
 function showTable(){
     document.getElementById("table-comm").classList.remove("table-hide");
+    
 }
 
+function commRowCount(){
+    // total count of rows entered
+    
+    var crowcount=document.querySelectorAll("#table-comm .table-row").length;
+    document.getElementById("commCountInput").setAttribute("value",crowcount);
+    if(crowcount===0){
+        document.getElementById("table-comm").classList.add("table-hide");
+    }
 
+}

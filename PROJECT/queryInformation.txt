@@ -1,0 +1,10 @@
+rake.html
+rakes for allotment
+rakeid .
+type .
+unit    
+zone 
+station
+available kms 
+status
+availability

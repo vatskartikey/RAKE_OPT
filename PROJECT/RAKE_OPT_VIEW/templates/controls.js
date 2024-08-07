@@ -108,7 +108,7 @@ deleteButtonColDiv.setAttribute("class","col-1");
 const deleteButton = document.createElement("button");
 deleteButton.setAttribute("type","button");
 deleteButton.setAttribute("class","btn btn-danger");
-deleteButton.textContent="Delete";
+deleteButton.innerHTML="<i class='fa-solid fa-trash-can'></i>";
 deleteButton.setAttribute("onclick","deleteRow(this)");
 deleteButtonColDiv.appendChild(deleteButton);
 const br=document.createElement("br");

@@ -49,6 +49,7 @@ showTable();
     
 // row+="<div class=row'> <div class='col-2' >coal" + "<input type='date' class='form-control' value='456' >" +"</div></div>" ;
 var comtable= document.querySelector("#table-comm");
+var flexdiv=document.querySelector("#flex-div");
 // const row_class=document.createAttribute("class");
 // row_class.value="row";
 // const col_class=document.createAttribute("class");
@@ -56,8 +57,8 @@ var comtable= document.querySelector("#table-comm");
 
 const rowdiv=document.createElement("div");
 rowdiv.setAttribute("class","row table-row");
-
-rowdiv.style.paddingTop="1%";
+rowdiv.setAttribute("max-width","fit-content");
+rowdiv.style.paddingTop="2%";
 // serialNo div
 // const serialNoDiv=document.createElement("div");
 // serialNoDiv.setAttribute("class","col-1");
@@ -72,7 +73,7 @@ rowdiv.style.paddingTop="1%";
 // commodity div
 
 const commColDiv=document.createElement("div");
-commColDiv.setAttribute("class","col-2");
+commColDiv.setAttribute("class","col-3");
 
 const commInput= document.createElement("input");
 commInput.setAttribute("class","form-control");
@@ -84,7 +85,7 @@ rowdiv.appendChild(commColDiv);
 
 // sub commodity div
 const subCommColDiv=document.createElement("div");
-subCommColDiv.setAttribute("class","col-2");
+subCommColDiv.setAttribute("class","col-3");
 const subCommInput= document.createElement("input");
 subCommInput.setAttribute("class","form-control");
 subCommInput.setAttribute("id","disabledTextInput");
@@ -98,13 +99,13 @@ const dateinput=document.createElement("input");
 dateinput.setAttribute("value",commDateValue);
 dateinput.setAttribute("type","date");
 dateinput.setAttribute("class","form-control");
-dateColDiv.setAttribute("class","col-2");
+dateColDiv.setAttribute("class","col-3");
 dateinput.setAttribute("disabled","disabled");
 dateColDiv.appendChild(dateinput);
 rowdiv.appendChild(dateColDiv);
 // button div
 const deleteButtonColDiv=document.createElement("div");
-deleteButtonColDiv.setAttribute("class","col-1");
+deleteButtonColDiv.setAttribute("class","col-2");
 const deleteButton = document.createElement("button");
 deleteButton.setAttribute("type","button");
 deleteButton.setAttribute("class","btn btn-danger");
@@ -114,12 +115,20 @@ deleteButtonColDiv.appendChild(deleteButton);
 const br=document.createElement("br");
 rowdiv.appendChild(deleteButtonColDiv);
 
-
+// flex div 
+var flex_div=document.createElement('div');
+flex_div.style.display="flex";
+flex_div.style.justifyContent="flex-start"
+flex_div.style.gap="20px";
+// flex_div.appendChild(rowdiv);
 // appeding row div into table
-comtable.appendChild(rowdiv);
-// comtable.appendChild(br);
+// comtable.appendChild(flex_div);
+flexdiv.appendChild(rowdiv);
+
 commRowCount();
-// comtable+="<div class='row'> <div class='col-2' >" + "<input type='date' class='form-control' >" +"</div></div>" ;
+
+
+
  });
 
  function deleteRow(button){
@@ -144,3 +153,39 @@ function commRowCount(){
     }
 
 }
+function submitdata(){
+    var headway = document.querySelector("#headway").value;
+    
+    var emptyrun = document.querySelector("#emptyrun").value;
+    var reskilo = document.querySelector("#reskilo").value;
+    var explor= document.querySelector("#explor").value;
+    var altpaths = document.querySelector("#altpaths").value;
+    var bpckm = document.querySelector("#bpckm").value;
+    var ldudtime = document.querySelector("#ldudtime").value;
+    var dmndcutoff=document.querySelector("#dmndcutoff").value;
+    console.log(emptyrun,reskilo,explor,altpaths,bpckm, ldudtime,dmndcutoff)
+    console.log(head_way);
+    var data={
+        headway:headway,
+        emptyrun:emptyrun,
+        reskilo:reskilo,
+        explor:explor,
+        altpaths:altpaths,
+        bpckm:bpckm,
+        ldudtime:ldudtime,
+        dmndcutoff:dmndcutoff
+
+                };
+                $.ajax({
+                    type:'POST',
+                    url:"{ }",
+                    dataType:'json',
+                    data:data,
+                    success:function(response){
+
+                    }
+                })
+    }
+
+
+
